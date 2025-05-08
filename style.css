@@ -1,0 +1,278 @@
+/* General Styles */
+body {
+    background-color: #000;
+    color: #f1f1f1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #00ffff;
+    text-decoration: underline;
+}
+
+.btn {
+    background-color: transparent;
+    border: 2px solid #4ee0d9;
+    color: #4ee0d9;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.btn:hover {
+    background-color: #4ee0d9;
+    color: #222;
+}
+
+/* Header */
+header {
+    background-color: #333;
+    padding: 20px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 0;
+}
+
+.hero .container {
+    display: flex;
+    align-items: center;
+}
+
+.hero-content {
+    display: flex;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h3 {
+    color: #04d1c7;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.hero-text h1 {
+    color: #4ee0d9;
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-text h4 {
+    color: #f7f5f5;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    color: #fffafa;
+}
+
+.social-links a {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 1.5em;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #4ee0d9;
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+
+/* Hexagon Styling */
+.hex-border,
+.Hex-border {
+    width: 300px;
+    height: 300px;
+    background-color: #4ee0d9;
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.hex-border:hover {
+    background-color: #1a3635;
+    color: #222;
+}
+
+.hex-border::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-clip-path: inherit;
+    clip-path: inherit;
+    background-color: #4ee0d9;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.hex-border img,
+.Hex-border img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    -webkit-clip-path: inherit;
+    clip-path: inherit;
+    z-index: 2;
+}
+
+/* About Section */
+.about {
+    padding: 80px 0;
+    background-color: #333;
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+}
+
+.about-image {
+    flex: 1;
+    text-align: left;
+}
+
+.about-text {
+    flex: 1;
+    padding-left: 50px;
+}
+
+.about-text h2 {
+    color: #4ee0d9;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.about-text h3 {
+    color: #4ee0d9;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+/* Skills Section */
+.skill {
+    margin-bottom: 15px;
+}
+
+.skill-name {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+
+.skill-bar {
+    background-color: #444;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, #00bcd4, #009688);
+    border-radius: 6px;
+    transition: width 2s ease;
+}
+
+.skill-percentage {
+    font-size: 13px;
+    color: #ccc;
+    margin-top: 3px;
+}
+
+.skill:hover .skill-progress {
+    filter: brightness(1.3);
+    transform: scaleX(1.02);
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px #00bcd4;
+}
+
+.skills-description {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    gap: 30px;
+}
+
+.skills-description > div {
+    flex: 1 1 250px;
+}
+
+.skills-description ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Contact Section & Right Column Styling */
+.contact-section,
+.right-column {
+    background-color: #111;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #00bcd4;
+    box-shadow: 0 0 12px rgba(0, 188, 212, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-section:hover,
+.right-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 16px rgba(0, 188, 212, 0.6);
+}
+
+.contact-section a,
+.right-column a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+
+.contact-section a:hover,
+.right-column a:hover {
+    color: #00ffff;
+    text-decoration: underline;
+}
