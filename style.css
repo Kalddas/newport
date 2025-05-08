@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-    background-color: #000;
+    background-color: #061325;
     color: #f1f1f1;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
@@ -14,7 +14,7 @@ body {
 }
 
 a {
-    color: #00bcd4;
+    color: #037d8d;
     text-decoration: none;
 }
 
@@ -123,7 +123,7 @@ nav li {
 .Hex-border {
     width: 300px;
     height: 300px;
-    background-color: #4ee0d9;
+    background-color: #f0f1f7;
     -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: flex;
@@ -183,7 +183,7 @@ nav li {
 }
 
 .about-text h2 {
-    color: #4ee0d9;
+    color: #eceeee;
     font-size: 2.5em;
     margin-bottom: 10px;
 }
@@ -214,7 +214,7 @@ nav li {
 .skill-progress {
     height: 100%;
     width: 0;
-    background: linear-gradient(90deg, #00bcd4, #009688);
+    background: linear-gradient(90deg, #edf8b1, #f0f0e5);
     border-radius: 6px;
     transition: width 2s ease;
 }
@@ -276,3 +276,107 @@ nav li {
     color: #00ffff;
     text-decoration: underline;
 }
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 2rem;
+  }
+  
+  /* Shared box styling */
+  .about-box,
+  .skills-box {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 2rem;
+    background-color: #0a1e42;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Hover effect for both boxes */
+  .about-box:hover,
+  .skills-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background-color: #030620;
+  }
+  
+  /* About box layout */
+  .about-box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  /* Image styling */
+  .hero-image img {
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+  
+  /* Button */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007acc;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  /* Skills Section */
+  .skill-list .skill {
+    margin: 10px 0;
+  }
+  
+  .skill-bar {
+    width: 100%;
+    background: #f2f4f7;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  
+  .skill-progress {
+    height: 100%;
+    background: #ecebb4;
+    width: 0;
+    transition: width 2s ease;
+  }
+  
+  /* Contact and Tools */
+  .skills-description {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .contact-section,
+  .right-column {
+    flex: 1 1 250px;
+  }
+  @keyframes wave {
+    0% { transform: rotate(0deg); }
+    10% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    30% { transform: rotate(14deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+    60% { transform: rotate(0deg); }
+    100% { transform: rotate(0deg); }
+  }
+  
+  .wave-emoji {
+    display: inline-block;
+    font-size: 48px;
+    animation: wave 2s infinite;
+    transform-origin: 70% 70%;
+  }
+  
