@@ -2,10 +2,408 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dagmawit Adeferes - Portfolio</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" crossorigin="anonymous" />
+  <style>
+    :root {
+      --color-gold: #FFD700;
+      --color-light-gold: #FFEA00;
+      --color-white: #FFFFFF;
+      --color-off-white: #F5F5F5;
+      --color-dark-gray: #1a1a1a;
+      --color-medium-gray: #2e2e2e;
+      --color-black: #000000;
+      --color-dark-text: #333333;
+      --color-light-gray: #E0E0E0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--color-black); /* Fallback color */
+      color: var(--color-dark-text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      /* Updated background image with a working URL */
+      background-image: url('https://images.unsplash.com/photo-1518655048521-f130df041f66');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .about-section, .skills-section {
+      padding: 80px 0;
+    }
+
+    .about-box, .skills-box {
+      background-color: rgba(46, 46, 46, 0.8); /* Semi-transparent background */
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .about-box:hover, .skills-box:hover {
+        transform: scale(1.02);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Updated container for flexbox layout on desktop */
+    @media (min-width: 768px) {
+      .about-section .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 80px;
+      }
+      .about-box {
+        flex-direction: row;
+        justify-content: center;
+        flex-grow: 1;
+      }
+    }
+
+    .hero-image {
+      flex-shrink: 0;
+    }
+
+    .hex-border {
+      width: 300px;
+      height: 300px;
+      background-color: var(--color-gold);
+      box-shadow: 0 0 12px rgba(255, 215, 0, 0.5);
+      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .hex-border img {
+      width: 90%;
+      height: 90%;
+      object-fit: cover;
+      -webkit-clip-path: inherit;
+      clip-path: inherit;
+      z-index: 2;
+    }
+
+    .about-text {
+      text-align: center;
+      max-width: 600px;
+      color: var(--color-white);
+    }
+    
+    @media (min-width: 768px) {
+      .about-text {
+        text-align: left;
+      }
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin-bottom: 0;
+      color: var(--color-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .about-text h3 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--color-light-gold);
+      margin-top: 0;
+    }
+
+    .about-text p {
+      color: var(--color-white);
+      margin-bottom: 20px;
+    }
+
+    .wave-emoji {
+      animation: wave 2s infinite;
+      transform-origin: 70% 70%;
+      font-size: 3rem;
+      margin-right: 10px;
+    }
+
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      10% { transform: rotate(14deg); }
+      20% { transform: rotate(-8deg); }
+      30% { transform: rotate(14deg); }
+      40% { transform: rotate(-4deg); }
+      50% { transform: rotate(10deg); }
+      60% { transform: rotate(0deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .social-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .social-links a {
+      color: var(--color-gold);
+      font-size: 2rem;
+      transition: color 0.3s ease;
+    }
+
+    .social-links a:hover {
+      color: var(--color-light-gold);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      border: 2px solid var(--color-light-gold);
+      color: var(--color-light-gold);
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--color-light-gold);
+      color: var(--color-dark-text);
+    }
+    
+    /* Skills Section */
+    .skills-section h1 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: var(--color-gold);
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .skills-section p {
+      text-align: center;
+      color: var(--color-white);
+      margin-bottom: 40px;
+    }
+    
+    .skills-box {
+      gap: 60px;
+    }
+
+    /* New wrapper for skills content to enable side-by-side layout */
+    .skills-content-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .skills-content-wrapper {
+        flex-direction: column; /* Ensure it stays a column on desktop */
+        align-items: flex-start;
+      }
+    }
+
+    .skill-list, .skills-description {
+      width: 100%;
+    }
+    
+    @media (min-width: 768px) {
+      .skill-list {
+        display: flex;
+        flex-direction: row; /* Skills in two columns */
+        flex: 1;
+      }
+
+      .skills-description {
+        flex: 1; /* Make both take equal space */
+      }
+    }
+
+    .skill-list .skill-column {
+      display: flex;
+      flex-direction: column;
+      flex: 1; /* Make columns take equal space */
+      gap: 20px;
+    }
+
+    .skill {
+      margin-bottom: 20px;
+    }
+
+    .skill-name {
+      font-weight: bold;
+      color: var(--color-white);
+      margin-bottom: 5px;
+    }
+
+    .skill-bar {
+      width: 100%;
+      background-color: var(--color-white);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .skill-progress {
+      height: 20px;
+      background-color: var(--color-gold);
+      border-radius: 10px;
+      transition: width 2s ease-in-out;
+    }
+
+    .skill-percentage {
+      font-size: 0.9rem;
+      font-weight: bold;
+      color: var(--color-dark-text);
+      float: right;
+      margin-top: -20px;
+      margin-right: 10px;
+    }
+
+    .skills-description {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    @media (min-width: 768px) {
+      .skills-description {
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+
+    .info-box {
+      background-color: var(--color-dark-gray);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+      flex: 1;
+      text-align: center;
+    }
+    
+    .info-box h3 {
+      color: var(--color-gold);
+      margin-top: 0;
+    }
+
+    .info-box ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .info-box li {
+      margin-bottom: 10px;
+      color: var(--color-white);
+    }
+    
+    .info-box li a {
+      color: var(--color-gold);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    
+    .info-box li a:hover {
+      color: var(--color-light-gold);
+      text-decoration: underline;
+    }
+
+    /* New styles for the linked hexagonal design */
+    .linked-hexagons {
+      display: none; /* Hide on mobile */
+      flex-direction: column;
+      gap: 30px;
+      align-items: center;
+      position: relative;
+    }
+
+    @media (min-width: 768px) {
+      .linked-hexagons {
+        display: flex; /* Show on desktop */
+      }
+    }
+
+    .small-hex {
+      width: 150px;
+      height: 150px;
+      background-color: var(--color-light-gold);
+      -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+      box-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pulse 2s infinite ease-in-out;
+      position: relative;
+      display: flex; /* Added flex for centering image */
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .small-hex img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        -webkit-clip-path: inherit;
+        clip-path: inherit;
+        transition: transform 0.3s ease;
+    }
+    
+    .small-hex:hover img {
+        transform: scale(1.1);
+    }
+
+    .small-hex:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      bottom: -42px;
+      left: 50%;
+      width: 2px;
+      height: 40px;
+      background-color: var(--color-gold);
+      transform: translateX(-50%);
+      animation: line-fade 2s infinite ease-in-out;
+    }
+
+    @keyframes line-fade {
+      0% { opacity: 0; }
+      50% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .small-hex:nth-child(2) { animation-delay: 0.5s; }
+    .small-hex:nth-child(3) { animation-delay: 1s; }
+    .small-hex:nth-child(4) { animation-delay: 1.5s; }
+    .small-hex:nth-child(5) { animation-delay: 2s; }
+
+    .small-hex:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.8; }
+    }
+  </style>
 </head>
 <body>
 
@@ -16,15 +414,22 @@
   <!-- About Me Box -->
   <section class="about-section">
     <div class="container">
+      <!-- New linked hexagonal design element -->
+      <div class="linked-hexagons">
+        <div class="small-hex"><img src="9.jpg" alt="Projects" /></div>
+        <div class="small-hex"><img src="8.jpg" alt="Experience" /></div>
+        <div class="small-hex"><img src="3.jpg" alt="Education" /></div>
+        <div class="small-hex"><img src="6.htm" alt="Hobbies" /></div>
+        <div class="small-hex"><img src="1.avif" alt="Contact" /></div>
+      </div>
       <div class="about-box">
         <div class="hero-image">
           <div class="hex-border">
-            <img src="img.jpg" alt="Dagmawit Adeferes">
+            <img src="img.jpg" alt="Dagmawit Adeferes" />
           </div>
         </div>
         <div class="about-text">
-          <h2><h2><span class="wave-emoji">👋</span> Hello, It's Me</h2>
-        </h2>
+          <h2><span class="wave-emoji">👋</span> Hello, It's Me</h2>
           <h3>Dagmawit!</h3>
           <p>I am an Information Technology student with a fundamental foundation in HTML, CSS, JavaScript, Java, Python, PHP, and C++.
             I am passionate about crafting responsive, user-friendly web interfaces that deliver real value. Familiar
@@ -34,12 +439,13 @@
             continuous learning, and am always ready to take on new challenges in the tech world.
           </p>
           <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.linkedin.com/in/dagmawit-adeferes-35b3a4364"><i class="fab fa-linkedin"></i></a>
             <a href="https://github.com/Kalddas"><i class="fab fa-github"></i></a>
           </div>
           <a href="resume.pdf" class="btn">Download CV</a>
         </div>
       </div>
+
     </div>
   </section>
 
@@ -49,44 +455,50 @@
       <div class="skills-box">
         <h1>My Skills</h1>
         <p>A visual representation of my skills and proficiency levels.</p>
-
-        <div class="skill-list">
-          <div class="skill"><div class="skill-name">HTML</div><div class="skill-bar"><div class="skill-progress" data-progress="70"></div></div><div class="skill-percentage">0%</div></div>
-          <div class="skill"><div class="skill-name">CSS</div><div class="skill-bar"><div class="skill-progress" data-progress="70"></div></div><div class="skill-percentage">0%</div></div>
-          <div class="skill"><div class="skill-name">JavaScript</div><div class="skill-bar"><div class="skill-progress" data-progress="45"></div></div><div class="skill-percentage">0%</div></div>
-          <div class="skill"><div class="skill-name">PHP</div><div class="skill-bar"><div class="skill-progress" data-progress="46"></div></div><div class="skill-percentage">0%</div></div>
-          <div class="skill"><div class="skill-name">Java</div><div class="skill-bar"><div class="skill-progress" data-progress="30"></div></div><div class="skill-percentage">0%</div></div>
-          <div class="skill"><div class="skill-name">Python</div><div class="skill-bar"><div class="skill-progress" data-progress="45"></div></div><div class="skill-percentage">0%</div></div>
-          <div class="skill"><div class="skill-name">C++</div><div class="skill-bar"><div class="skill-progress" data-progress="30"></div></div><div class="skill-percentage">0%</div></div>
-        </div>
-
-        <div class="skills-description">
-          <div class="contact-section">
-            <h3>📫 Contact Me</h3>
-            <p><strong>Name:</strong> Dagmawit Adeferes</p>
-            <p><strong>Email:</strong> <a href="mailto:dagmawitadeferes@gmail.com">dagmawitadeferes@gmail.com</a></p>
-            <p><strong>Telegram:</strong> <a href="https://t.me/Kalddass" target="_blank">@Kalddass</a></p>
-            <p><strong>Location:</strong> Debre Berhan, Ethiopia</p>
+        
+        <div class="skills-content-wrapper">
+          <div class="skill-list">
+            <div class="skill-column">
+              <div class="skill"><div class="skill-name">PHP</div><div class="skill-bar"><div class="skill-progress" data-progress="46"></div></div><div class="skill-percentage">0%</div></div>
+              <div class="skill"><div class="skill-name">Java</div><div class="skill-bar"><div class="skill-progress" data-progress="30"></div></div><div class="skill-percentage">0%</div></div>
+              <div class="skill"><div class="skill-name">Python</div><div class="skill-bar"><div class="skill-progress" data-progress="45"></div></div><div class="skill-percentage">0%</div></div>
+              <div class="skill"><div class="skill-name">C++</div><div class="skill-bar"><div class="skill-progress" data-progress="30"></div></div><div class="skill-percentage">0%</div></div>
+            </div>
+            <div class="skill-column">
+              <div class="skill"><div class="skill-name">HTML</div><div class="skill-bar"><div class="skill-progress" data-progress="70"></div></div><div class="skill-percentage">0%</div></div>
+              <div class="skill"><div class="skill-name">CSS</div><div class="skill-bar"><div class="skill-progress" data-progress="70"></div></div><div class="skill-percentage">0%</div></div>
+              <div class="skill"><div class="skill-name">JavaScript</div><div class="skill-bar"><div class="skill-progress" data-progress="45"></div></div><div class="skill-percentage">0%</div></div>
+            </div>
           </div>
+          <div class="skills-description">
+            <div class="info-box">
+              <h3>📫 Contact Me</h3>
+              <ul>
+                <li>Name: Dagmawit Adeferes</li>
+                <li>Email: <a href="mailto:dagmawitadeferes@gmail.com">dagmawitadeferes@gmail.com</a></li>
+                <li>Telegram: <a href="https://t.me/Kalddass" target="_blank">@Kalddass</a></li>
+              </ul>
+            </div>
 
-          <div class="right-column">
-            <h3>🧰 Tools & Technologies</h3>
-            <ul>
-              <li>VS Code</li>
-              <li>PyCharm</li>
-              <li>NetBeans</li>
-              <li>MySQL</li>
-            </ul>
-          </div>
+            <div class="info-box">
+              <h3>🧰 Tools & Technologies</h3>
+              <ul>
+                <li>VS Code</li>
+                <li>PyCharm</li>
+                <li>NetBeans</li>
+                <li>MySQL</li>
+              </ul>
+            </div>
 
-          <div class="right-column">
-            <h3>🤝 Soft Skills</h3>
-            <ul>
-              <li>Communication</li>
-              <li>Teamwork</li>
-              <li>Critical Thinking</li>
-              <li>Adaptability</li>
-            </ul>
+            <div class="info-box">
+              <h3>🤝 Soft Skills</h3>
+              <ul>
+                <li>Communication</li>
+                <li>Teamwork</li>
+                <li>Critical Thinking</li>
+                <li>Adaptability</li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
